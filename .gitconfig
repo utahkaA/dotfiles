@@ -1,0 +1,6 @@
+[user]
+	email = utahka.akiba@gmail.com
+	name = utahkaA
+
+[alias]
+	graph = log --graph --date=short --oneline --decorate=full
