@@ -47,10 +47,23 @@ NeoBundleCheck
 
 " NeoBundle
 NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'sudo.vim'
+NeoBundle 'tomtom/tcomment_vim'
+NeoBundle 'itchyny/lightline.vim'
+NeoBundle 'nathanaelkane/vim-indent-guides'
+NeoBundle 'bronson/vim-trailing-whitespace'
 
 call neobundle#end()
 
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
+
+let g:lightline = {
+    \ 'colorscheme': 'wombat',
+    \ 'component': {
+    \   'readonly': '%{&readonly?"x":""}',
+    \ }
+    \ }
+set laststatus=2
 " md as markdown, instead of modula2
 " autocmd MyAutoGroup BufNewFile,BufRead *.{md,mdwn,mkdn,mark*} set filetype=markdown
 
