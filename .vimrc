@@ -1,9 +1,9 @@
-" syntax highlight
+" --- syntax highlight ---
 syntax enable
 set background=dark
 colorscheme monokai
 
-" indent
+" --- indent ---
 set expandtab
 set tabstop=4
 set shiftwidth=4
@@ -45,7 +45,7 @@ filetype plugin indent on
 " this will conveniently prompt you to install them.
 NeoBundleCheck
 
-" NeoBundle
+" --- NeoBundle Plugins ---
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'sudo.vim'
 NeoBundle 'tomtom/tcomment_vim'
