@@ -15,6 +15,7 @@ PS1='\[\e[0;32m\]\W\[\e[00m\] \[\033[40;1;32m\]$(git_branch)\[\033[0m\]$ '
 # alias
 alias vim="/Users/utahkaA/Applications/MacVim.app/Contents/MacOS/Vim"
 alias emacs="emacs -nw"
+alias mv="mv -i"
 alias ll="ls -hl"
 alias la="ls -a"
 alias ls="ls -GF"
