@@ -1,6 +1,7 @@
 # PATH
 export PATH="${HOME}/.pyenv/shims:$PATH"
 export PATH="${HOME}/.nodebrew/current/bin:${PATH}"
+export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
 
 # "ls" Settings
 export LSCOLORS=gxfxcxdxbxegedabagacad
@@ -20,7 +21,7 @@ alias emacs="emacs -nw"
 alias mv="mv -i"
 alias ll="ls -hl"
 alias la="ls -a"
-alias ls="ls -GF"
+alias ls="ls --color=auto -F"
 alias readlink="greadlink"
 alias awk="gawk"
 alias sed="gsed"
