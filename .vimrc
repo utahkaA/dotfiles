@@ -69,3 +69,5 @@ set laststatus=2
 
 " Disable highlight italic in Markdown
 " autocmd MyAutoGroup FileType markdown hi! def link markdownItalic LineNr
+
+nnoremap O :<C-u>call append(expand('.'), '')<Cr>j
