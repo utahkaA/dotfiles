@@ -6,6 +6,21 @@ Backup with `tar` command
 tar zcvf hoge.tar.gz --exclude-from=${HOME}/.tar-exclude hoge/
 ```
 
+`.vimrc`
+--------
+### NeoBundle
+
+Follow the following the link(official README).
+- [neobundle.vim](https://github.com/Shougo/neobundle.vim)
+
+### How to install "monokai" color scheme
+
+```
+git clone https://github.com/sickill/vim-monokai.git
+mkdir -p ~/.vim/colors
+mv vim-monokai/colors/monokai.vim ~/.vim/colors/
+```
+
 `.brewfile`
 -----------
 ```
