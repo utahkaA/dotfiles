@@ -5,4 +5,4 @@
 [alias]
 	graph = log --graph --date=short --oneline --decorate=full
 [core]
-	editor = /Users/utahkaA/Applications/MacVim.app/Contents/MacOS/Vim
+	editor = vim
