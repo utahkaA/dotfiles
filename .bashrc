@@ -1,16 +1,26 @@
 # alias Settings
-alias vim="/Users/utahkaA/Applications/MacVim.app/Contents/MacOS/Vim"
 alias emacs="emacs -nw"
 alias mv="mv -i"
 alias ll="ls -hl"
 alias la="ls -a"
 alias ls="ls --color=auto -F"
-alias readlink="greadlink"
-alias awk="gawk"
-alias sed="gsed"
-alias date="gdate"
 alias grep="grep --color"
-alias julia="/Applications/Julia-0.4.2.app/Contents/Resources/julia/bin/julia"
+
+# for OSX
+if [ `uname` = "Darwin" ]; then
+	alias vim="/Users/utahkaA/Applications/MacVim.app/Contents/MacOS/Vim"
+    alias awk="gawk"
+    alias sed="gsed"
+    alias date="gdate"
+    alias readlink="greadlink"
+    alias julia="/Applications/Julia-0.4.2.app/Contents/Resources/julia/bin/julia"
+fi
+
+# for Linux
+if [ `uname` = "Linux" ]; then
+    source /opt/ros/indigo/setup.bash
+    source ~/WorkTree/catkin_ws/devel/setup.bash
+fi
 
 # Prompt Settings
 git_branch() {
