@@ -23,6 +23,9 @@ mv vim-monokai/colors/monokai.vim ~/.vim/colors/
 
 `.brewfile`
 -----------
+
+to generate `Brewfile`
+
 ```
 brew brewdle dump
 ```
