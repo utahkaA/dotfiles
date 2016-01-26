@@ -25,11 +25,14 @@ Mac OS X
 --------
 `.brewfile`
 -----------
+
+to generate `Brewfile`
+
 ```
 brew brewdle dump
 ```
 
-と叩くと、`Brewfile` というのが生まれる。ここに `brew` でもってきたものが書かれる。
+List of applications installed by `brew` is written on the `Brewfile`.
 
 この `Brewfile` があるディレクトリで、
 
