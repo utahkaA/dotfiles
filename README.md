@@ -21,6 +21,8 @@ mkdir -p ~/.vim/colors
 mv vim-monokai/colors/monokai.vim ~/.vim/colors/
 ```
 
+Mac OS X
+--------
 `.brewfile`
 -----------
 ```
@@ -44,3 +46,15 @@ brew brewdle cleanup
 ```
 
 で、消した行のものはアンインストールしたりしてくれる。
+
+Ubuntu
+------
+Font
+----
+Ubunutu では、`apt-get` で `inconsolata` をインストールできる。
+
+```
+apt-get install fonts-inconsolata
+```
+
+あとはターミナルの Profile を設定して上げれば良い。
