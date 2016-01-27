@@ -52,12 +52,12 @@ brew brewdle cleanup
 
 Ubuntu
 ------
-Font
-----
-Ubunutu では、`apt-get` で `inconsolata` をインストールできる。
+Installation of inconsolata on Ubuntu
+-------------------------------------
+run the command below.
 
 ```
 apt-get install fonts-inconsolata
 ```
 
-あとはターミナルの Profile を設定して上げれば良い。
+With the font installed, we can set our terminal's font by editing the menu `Edit/Profiles`.
