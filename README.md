@@ -34,13 +34,13 @@ brew brewdle dump
 
 List of applications installed by `brew` is written on the `Brewfile`.
 
-この `Brewfile` があるディレクトリで、
+run the command below in the directory which has `Brewfile`.
 
 ```
 brew brewdle
 ```
 
-と叩くと、`Brewfile` に書かれているパッケージやアプリケーションなどがインストールされる。ちなみに、`.brewfile` のように改名していても問題ないらしい。
+`Brewfile` に書かれているパッケージやアプリケーションなどがインストールされる。ちなみに、`.brewfile` のように改名していても問題ないらしい。
 
 ほかにも、`.brewfile` に書かれていていらないものはその行を消してしまえば、
 
