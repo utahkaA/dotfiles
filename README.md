@@ -34,13 +34,13 @@ brew brewdle dump
 
 List of applications installed by `brew` is written on the `Brewfile`.
 
-この `Brewfile` があるディレクトリで、
+run the command below in the directory which has `Brewfile`.
 
 ```
 brew brewdle
 ```
 
-と叩くと、`Brewfile` に書かれているパッケージやアプリケーションなどがインストールされる。ちなみに、`.brewfile` のように改名していても問題ないらしい。
+`Brewfile` に書かれているパッケージやアプリケーションなどがインストールされる。ちなみに、`.brewfile` のように改名していても問題ないらしい。
 
 ほかにも、`.brewfile` に書かれていていらないものはその行を消してしまえば、
 
@@ -52,12 +52,12 @@ brew brewdle cleanup
 
 Ubuntu
 ------
-Font
-----
-Ubunutu では、`apt-get` で `inconsolata` をインストールできる。
+Installation of inconsolata on Ubuntu
+-------------------------------------
+run the command below.
 
 ```
 apt-get install fonts-inconsolata
 ```
 
-あとはターミナルの Profile を設定して上げれば良い。
+With the font installed, we can set our terminal's font by editing the menu `Edit/Profiles`.

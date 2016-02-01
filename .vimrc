@@ -40,6 +40,7 @@ NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'bronson/vim-trailing-whitespace'
 NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'JuliaLang/julia-vim'
 
 call neobundle#end()
 
