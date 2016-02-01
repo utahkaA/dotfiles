@@ -20,6 +20,7 @@ fi
 if [ `uname` = "Linux" ]; then
     source /opt/ros/indigo/setup.bash
     source ~/WorkTree/catkin_ws/devel/setup.bash
+    alias listusers="cat /etc/passwd | cut -d : -f 1"
 fi
 
 # Prompt Settings
