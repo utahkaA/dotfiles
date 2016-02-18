@@ -13,6 +13,18 @@ set smartindent
 set number
 set fileformat=unix
 
+" --- dont make a backup file ---
+set nowritebackup
+set nobackup
+set noswapfile
+
+" --- no remap ---
+inoremap <silent> jj <ESC>
+nnoremap O :<C-u>call append(expand('.'), '')<Cr>j
+nnoremap <silent> <C-e> :NERDTreeToggle<CR>
+inoremap <expr> <C-g> neocomplcache#undo_completion()
+inoremap <expr> <C-l> neocomplcache#complete_common_string()
+
 " Note: Skip initialization for vim-tiny or vim-small.
 if 0 | endif
 
@@ -54,7 +66,6 @@ filetype plugin indent on
 " this will conveniently prompt you to install them.
 NeoBundleCheck
 
-nnoremap <silent><C-e> :NERDTreeToggle<CR>
 
 let g:lightline = {
     \ 'colorscheme': 'wombat',
@@ -83,9 +94,8 @@ let g:neocomplcache_dictionary_filetype_lists = {
     \ 'default' : ''
     \ }
 
+
 " Plugin key-mappings
-inoremap <expr><C-g>    neocomplcache#undo_completion()
-inoremap <expr><C-l>    neocomplcache#complete_common_string()
 
 " Recommended key-mappings.
 " <CR>: close popup and save indent.
@@ -107,4 +117,3 @@ inoremap <expr><C-e>  neocomplcache#cancel_popup()
 " Disable highlight italic in Markdown
 " autocmd MyAutoGroup FileType markdown hi! def link markdownItalic LineNr
 
-nnoremap O :<C-u>call append(expand('.'), '')<Cr>j
