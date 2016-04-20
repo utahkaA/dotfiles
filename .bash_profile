@@ -1,14 +1,18 @@
 # Mac Profile
 if [ `uname` = "Darwin" ]; then
-	if [ -d /Users/utahkaA/Applications/MacVim.app ]; then
-    		export PATH="/Users/utahkaA/Applications/MacVim.app/Contents/MacOS/Vim:${PATH}";
+	if [ -d ~/Applications/MacVim.app ]; then
+		export PATH="${HOME}/Applications/MacVim.app/Contents/MacOS/Vim:${PATH}"
 	fi
 
-    export PATH="${HOME}/.pyenv/shims:$PATH"
-    export PATH="${HOME}/.nodebrew/current/bin:${PATH}"
-    export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
+	export PATH="${HOME}/.pyenv/shims:$PATH"
+	export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
+	# export PATH="${HOME}/.nodebrew/current/bin:${PATH}"
 
-    eval "$(rbenv init -)"
+	if [ -x $(which rbenv) -a -x $(which pyenv) ]; then
+		eval "$(rbenv init -)"
+		eval "$(pyenv init -)"
+	fi
+
 fi
 
 # Linux Profile

@@ -1,14 +1,31 @@
 #!/bin/bash
 
-# Install NeoBundle
-curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh > ~/neobundle_install.sh
-sh ~/neobundle_install.sh
-rm -rf ~/neobundle_install.sh
-git clone https://github.com/sickill/vim-monokai.git
-mkdir -p ~/.vim/colors
-mv ~/dotfiles/vim-monokai/colors/monokai.vim ~/.vim/colors/monokai.vim
+if [ $(uname) = "Darwin" ]; then
+	echo "Your system is OS X. Start setting your enviroment."
+	# Install brew
+	if [ ! -x "$(which brew)"]; then
+		/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+	else
+		echo "brew is already installed."
+	fi
 
-if [ `uname` = "Linux" ]; then
+	# Install formulas with brewdle
+	cp .brewfile Brewfile
+	brew brewdle
+	mv Brewfile ~/.Trash
+fi
+
+# Install NeoBundle
+if [ -d ~/Applications/MacVim.app ]; then
+	curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh > ~/dotfiles/neobundle_install.sh
+	sh ~/dotfiles/neobundle_install.sh
+	mv ~/dotfiles/neobundle_install.sh ~/.Trash
+	git clone https://github.com/sickill/vim-monokai.git
+	mkdir -p ~/.vim/colors
+	mv ~/dotfiles/vim-monokai/colors/monokai.vim ~/.vim/colors/monokai.vim
+fi
+
+if [ $(uname) = "Linux" ]; then
 	sudo apt-get remove vim-tiny
 	sudo apt-get install vim
 fi

@@ -8,7 +8,7 @@ alias grep="grep --color"
 
 # for OSX
 if [ `uname` = "Darwin" ]; then
-	alias vim="/Users/utahkaA/Applications/MacVim.app/Contents/MacOS/Vim"
+	alias vim="${HOME}/Applications/MacVim.app/Contents/MacOS/Vim"
     alias awk="gawk"
     alias sed="gsed"
     alias date="gdate"
