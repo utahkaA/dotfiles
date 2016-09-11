@@ -1,41 +1,65 @@
-" --- syntax highlight ---
-syntax enable
-set background=dark
-colorscheme monokai
-
-" --- indent ---
-set expandtab
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-set autoindent
-set smartindent
-set number
+set encoding=utf-8
 set fileformat=unix
+set number " set line number. The command `:set nonumber` hides numbers.
+set showcmd
 
 " --- dont make a backup file ---
 set nowritebackup
 set nobackup
 set noswapfile
 
-" --- no remap ---
-inoremap <silent> jj <ESC>
-nnoremap O :<C-u>call append(expand('.'), '')<Cr>j
-nnoremap <silent> <C-e> :NERDTreeToggle<CR>
-inoremap <expr> <C-g> neocomplcache#undo_completion()
-inoremap <expr> <C-l> neocomplcache#complete_common_string()
+" --- switche on syntax highlightning ---
+syntax enable
+colorscheme monokai
 
-" Note: Skip initialization for vim-tiny or vim-small.
-if 0 | endif
+" --- indent ---
+set expandtab " use the approproate number of spaces to insert a Tab
+set tabstop=2 " number of spaces that a Tab in the file counts for
+set shiftwidth=2 " number of spaces to use for each step of (auto)indent
+set softtabstop=2 " number of spaces that a Tab counts for while performing editing operations, like inserting a Tab or using BS
+set cindent " autoindent
+" set autoindent
+" set smartindent
 
-filetype off
-if has('vim_starting')
-    if &compatible
-        set nocompatible    " Be iMproved
-    endif
+set backupskip=/tmp/*,/private/tmp/*
 
-    " Required:
-    set runtimepath+=~/.vim/bundle/neobundle.vim/
+" --- remap of normal mode ---
+nnoremap j gj
+nnoremap k gk
+nnoremap <Down> gj
+nnoremap <Up> gk
+nnoremap gj j
+nnoremap gk k
+nnoremap O :<C-u>call append(line('.'), '')<Cr>j
+
+" --- remap of inset mode ---
+inoremap jj <ESC>
+inoremap { {}<Left>
+inoremap ( ()<Left>
+inoremap " ""<Left>
+inoremap ' ''<Left>
+inoremap ` ``<Left>
+inoremap “ “”<Left>
+
+" --- for setting pane and tab ---
+nnoremap s <Nop>
+nnoremap sj <C-w>j
+nnoremap sk <C-w>k
+nnoremap sl <C-w>l
+nnoremap sh <C-w>h
+
+nnoremap st :<C-u>tabnew<CR>
+nnoremap sn gt
+nnoremap sp gT
+
+if has('vim_starting') " True while initial source'ing takes place.
+ " default on, off when a vimrc or gvimrc file is found
+   if &compatible
+       set nocompatible
+   endif
+
+   " Required:
+   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
 call neobundle#begin(expand('~/.vim/bundle'))
@@ -68,11 +92,11 @@ NeoBundleCheck
 
 
 let g:lightline = {
-    \ 'colorscheme': 'wombat',
-    \ 'component': {
-    \   'readonly': '%{&readonly?"x":""}',
-    \ }
-    \ }
+   \ 'colorscheme': 'wombat',
+   \ 'component': {
+   \   'readonly': '%{&readonly?"x":""}',
+   \ }
+   \ }
 set laststatus=2
 
 " --- neocomplcache setting ---
@@ -91,17 +115,23 @@ let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
 
 " Define dictionary
 let g:neocomplcache_dictionary_filetype_lists = {
-    \ 'default' : ''
-    \ }
+   \ 'default' : ''
+   \ }
 
 
 " Plugin key-mappings
+inoremap <expr> <C-g> neocomplcache#undo_completion()
+inoremap <expr> <C-l> neocomplcache#complete_common_string()
+
+" --- NERDTree config ---
+nnoremap <silent> <C-e> :NERDTreeToggle<CR>
+let NERDTreeShowHidden=1
 
 " Recommended key-mappings.
 " <CR>: close popup and save indent.
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
-   return neocomplcache#smart_close_popup() . "\<CR>"
+  return neocomplcache#smart_close_popup() . "\<CR>"
 endfunction
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
@@ -116,4 +146,3 @@ inoremap <expr><C-e>  neocomplcache#cancel_popup()
 
 " Disable highlight italic in Markdown
 " autocmd MyAutoGroup FileType markdown hi! def link markdownItalic LineNr
-
