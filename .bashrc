@@ -8,6 +8,7 @@ alias grep="grep --color"
 
 # for OSX
 if [ `uname` = "Darwin" ]; then
+<<<<<<< HEAD
 	if [ -e /Applications/MacVim.app/ ]; then
     alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
   elif [ -e /Users/utahka/Applications/MacVim.app/ ]; then

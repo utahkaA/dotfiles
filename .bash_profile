@@ -1,7 +1,7 @@
 # Mac Profile
 if [ `uname` = "Darwin" ]; then
-	if [ -d /Users/utahkaA/Applications/MacVim.app ]; then
-    		export PATH="/Users/utahkaA/Applications/MacVim.app/Contents/MacOS/Vim:${PATH}";
+	if [ -d ~/Applications/MacVim.app ]; then
+		export PATH="${HOME}/Applications/MacVim.app/Contents/MacOS/Vim:${PATH}"
 	fi
   export EDITOR=vim
   # set locale vars.
