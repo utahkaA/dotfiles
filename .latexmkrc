@@ -9,4 +9,3 @@ $max_repeat = 5;
 $pdf_mode = 3;
 
 $pdf_previewer = 'open -ga Preview %S';
-

@@ -1,14 +1,10 @@
 # alias Settings
 alias emacs="emacs -nw"
 # alias mv="mv -i"
-alias ll="ls -hl"
-alias la="ls -a"
-alias ls="ls --color=auto -F"
 alias grep="grep --color"
 
 # for OSX
 if [ `uname` = "Darwin" ]; then
-<<<<<<< HEAD
 	if [ -e /Applications/MacVim.app/ ]; then
     alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
   elif [ -e /Users/utahka/Applications/MacVim.app/ ]; then
@@ -18,11 +14,15 @@ if [ `uname` = "Darwin" ]; then
   else
     echo "Didnt find MacVim.app in this machine."
   fi
+  alias ls="gls"
+  alias ll="ls -hl"
+  alias la="ls -a"
+  alias ls="ls --color=auto -F"
   alias awk="gawk"
   alias sed="gsed"
   alias date="gdate"
   alias readlink="greadlink"
-  alias julia="/Applications/Julia-0.4.2.app/Contents/Resources/julia/bin/julia"
+  alias julia="/Applications/Julia-0.5.app/Contents/Resources/julia/bin/julia"
 fi
 
 # for Linux
