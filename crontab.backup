@@ -1,1 +1,2 @@
-0 17 * * 1,2,3,4,5 ~/dotfiles/backup_brew
+0 15 * * * ~/dotfiles/cron_script/backup_brew
+0 15 * * * ~/dotfiles/cron_script/backup_home

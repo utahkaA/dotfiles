@@ -36,6 +36,21 @@ if [ $(uname) = "Darwin" ]; then
   else
     echo ">>> dein.vim is already installed"
   fi
+
+  # Setting login shell to fish
+  if [ $SHELL = "/usr/local/bin/fish" ]; then
+    echo "If you wanna use fish, you add the following line to /etc/shells" > for_fish
+    echo "  /usr/local/bin/fish" >> for_fish
+    echo "Run the following command to change login shell" >> for_fish
+    echo "  chsh -s /usr/local/bin/fish" >> for_fish
+    echo "Run the following command to install fisherman" >> for_fish
+    echo "  curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisherman" >> for_fish
+    echo "Plz make symbolic link to ~/.config/fish/" >> for_fish
+    echo "  ln -sf ~/dotfiles/config.fish ~/.config/fish/config.fish"
+    echo "  ln -sf ~/dotfiles/fishfile ~/.cofig/fish/fishfile"
+    echo "Run the last command" >> for_fish
+    echo "  fisher" >> for_fish
+  fi
 fi
 
 if [ $(uname) = "Linux" ]; then

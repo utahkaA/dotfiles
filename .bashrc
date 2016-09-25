@@ -14,6 +14,7 @@ if [ `uname` = "Darwin" ]; then
   else
     echo "Didnt find MacVim.app in this machine."
   fi
+  alias sudo='sudo -E'
   alias ls="gls"
   alias ll="ls -hl"
   alias la="ls -a"
