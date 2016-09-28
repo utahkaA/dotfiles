@@ -6,30 +6,37 @@ Backup with `tar` command
 tar zcvf hoge.tar.gz --exclude-from=${HOME}/.tar-exclude hoge/
 ```
 
-`.vimrc`
---------
-### NeoBundle
-
-Follow the following the link(official README).
-- [neobundle.vim](https://github.com/Shougo/neobundle.vim)
-
-### How to install "monokai" color scheme
-
-```
-git clone https://github.com/sickill/vim-monokai.git
-mkdir -p ~/.vim/colors
-mv vim-monokai/colors/monokai.vim ~/.vim/colors/
-```
-
 Mac OS X
 --------
-`.brewfile`
+Setup
+------
+<!-- - show bundle progress bar -->
+
+### 1. Run script setup_all.sh
+Run the following command to download my setup_all.sh
+
+```
+curl https://raw.githubusercontent.com/utahkaA/dotfiles/master/setup_all.sh
+chmod +x setup_all.sh
+./setup_all.sh
+```
+
+This command install {Homebrew, Homebrew formulas, Git, powerline, dein.vim} and set up cron.
+
+### 2. Google Chrome
+Go to `chrome://flags/#top-chrome-md` and change it's value to `Non-material`
+
+Brew-file
+---------
+Python2 じゃないと動かなかった。
+
+`Brewfile`
 -----------
 
 to generate `Brewfile`
 
 ```
-brew brewdle dump
+brew bundle dump
 ```
 
 List of applications installed by `brew` is written on the `Brewfile`.
@@ -37,22 +44,22 @@ List of applications installed by `brew` is written on the `Brewfile`.
 run the command below in the directory which has `Brewfile`.
 
 ```
-brew brewdle
+brew bundle
 ```
 
-`Brewfile` に書かれているパッケージやアプリケーションなどがインストールされる。ちなみに、`.brewfile` のように改名していても問題ないらしい。
+`Brewfile` に書かれているパッケージやアプリケーションなどがインストールされる。
 
-ほかにも、`.brewfile` に書かれていていらないものはその行を消してしまえば、
+ほかにも、`Brewfile` に書かれていていらないものはその行を消してしまえば、
 
 ```
-brew brewdle cleanup
+brew bundle cleanup
 ```
 
 で、消した行のものはアンインストールしたりしてくれる。
 
 Ubuntu
 ------
-Installation of inconsolata on Ubuntu
+Installation of Inconsolata on Ubuntu
 -------------------------------------
 run the command below.
 

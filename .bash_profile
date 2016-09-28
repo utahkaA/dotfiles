@@ -26,7 +26,30 @@ if [ `uname` = "Darwin" ]; then
   export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
   export ARCHFLAGS='-arch i386 -arch x86_64'
   export XDG_CONFIG_HOME="${HOME}/.config" # for NeoVim
+
   eval "$(rbenv init -)"
+
+  # setting of aliases
+  if [ -e /Applications/MacVim.app/ ]; then
+    alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
+  elif [ -e /Users/utahka/Applications/MacVim.app/ ]; then
+    alias vim="/Users/utahka/Applications/MacVim.app/Contents/MacOS/Vim"
+  elif [ -e /Users/utahkaA/Applications/MacVim.app/ ]; then
+    alias vim="/Users/utahkaA/Applications/MacVim.app/Contents/MacOS/Vim"
+  else
+    echo "Didnt find MacVim.app in this machine."
+  fi
+  alias sudo='sudo -E'
+  alias ls="gls"
+  alias ll="ls -hl"
+  alias la="ls -a"
+  alias ls="ls --color=auto -F"
+  alias awk="gawk"
+  alias sed="gsed"
+  alias date="gdate"
+  alias readlink="greadlink"
+  alias grep="grep --color"
+  alias julia="/Applications/Julia-0.5.app/Contents/Resources/julia/bin/julia"
 fi
 
 # Linux Profile
