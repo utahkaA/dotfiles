@@ -79,7 +79,7 @@ if [ $(uname) = "Darwin" ]; then
   ln -sf ~/dotfiles/.latexmkrc ~/.latexmkrc
   ln -sf ~/dotfiles/.tar-exclude ~/.tar-exclude
   ln -sf ~/dotfiles/.tmux.conf ~/.tmux.conf
-  ln -sf ~/dotfiles/fish/config.fish ~/.config/fish/config.fish
-  ln -sf ~/dotfiles/fish/fishfile ~/.config/fish/fishfile
+  cp ~/dotfiles/fish/config.fish ~/.config/fish/config.fish
+  cp ~/dotfiles/fish/fishfile ~/.config/fish/fishfile
 fi
 

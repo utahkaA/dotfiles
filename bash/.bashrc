@@ -1,7 +1,7 @@
 # Mac Profile
-if [ `uname` = "Darwin" ]; then
-	if [ -d ~/Applications/MacVim.app ]; then
-		export PATH="${HOME}/Applications/MacVim.app/Contents/MacOS/Vim:${PATH}"
+if [ $(uname) = "Darwin" ]; then
+	if [ -d /Applications/MacVim.app ]; then
+		export PATH="/Applications/MacVim.app/Contents/MacOS/Vim:${PATH}"
 	fi
   export EDITOR=vim
   # set locale vars.
@@ -52,9 +52,17 @@ if [ `uname` = "Darwin" ]; then
   alias julia="/Applications/Julia-0.5.app/Contents/Resources/julia/bin/julia"
 fi
 
-# Linux Profile
-if [ `uname` = "Linux" ]; then
+# for Linux
+if [ $(uname) = "Linux" ]; then
+  # source /opt/ros/indigo/setup.bash
+  # source ~/WorkTree/catkin_ws/devel/setup.bash
+  alias listusers="cat /etc/passwd | cut -d : -f 1"
 	export PATH="${HOME}/.rbenv/bin:${PATH}"
 	eval "$(rbenv init -)"
 fi
-test -r ~/.bashrc && . ~/.bashrc
+
+# Prompt Settings
+git_branch() {
+  echo $(git branch 2> /dev/null | sed -ne "s/^\* \(.*\)$/\1/p")
+}
+PS1='\[\e[0;32m\]\W\[\e[00m\] \[\033[40;1;32m\]$(git_branch)\[\033[0m\]\n$ '
