@@ -1,4 +1,5 @@
 WorkTree/virtualbox/*
+WorkTree/vagrant/*
 Applications
 Library
 Movies
@@ -26,8 +27,9 @@ dotfiles
 .subversion
 .tmux.conf
 .localized
+.vagrant.d
+.bundle
 
-*.wav
 *.dmg
 *.pkg
 [0-9]{8}.tar.gz

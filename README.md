@@ -26,9 +26,12 @@ This command install {Homebrew, Homebrew formulas, Git, powerline, dein.vim} and
 ### 2. Google Chrome
 Go to `chrome://flags/#top-chrome-md` and change it's value to `Non-material`
 
+### 3. Install Microsoft Office
+### 4. Clean Finder side menu
+
 Brew-file
 ---------
-Python2 じゃないと動かなかった。
+Python 2 is Needed.
 
 `Brewfile`
 -----------

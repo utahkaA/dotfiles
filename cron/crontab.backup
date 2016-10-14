@@ -1,2 +1,2 @@
-0 15 * * * ~/dotfiles/cron_script/backup_brew
-0 15 * * * ~/dotfiles/cron_script/backup_home
+0 15 * * * bash ~/dotfiles/cron/backup_brew.sh
+0 15 * * * bash ~/dotfiles/cron/backup_home.sh

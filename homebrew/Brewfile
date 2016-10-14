@@ -2,15 +2,24 @@
 # tap repositories and their packages
 
 tap caskroom/cask
+cask boostnote
+cask evernote
+cask fritzing
 cask google-chrome
+cask google-japanese-ime
 cask iterm2
 cask java
 cask mactex
 cask macvim
 cask processing
 cask skitch
+cask skype
 cask slack
+cask teamviewer
+cask virtualbox
 cask xquartz
+
+tap caskroom/versions
 
 tap homebrew/bundle
 
@@ -35,6 +44,7 @@ brew git
 brew glib
 brew gmp
 brew gnu-sed
+brew gnu-tar
 brew go
 brew gobject-introspection
 brew harfbuzz
