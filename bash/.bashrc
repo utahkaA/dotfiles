@@ -21,9 +21,9 @@ if [ $(uname) = "Darwin" ]; then
   export LC_ALL="en_US.UTF-8"
 
   export PATH="/Library/Developer/Toolchains/swift-latest.xctoolchain/usr/bin:${PATH}"
-  export PATH="${HOME}/.pyenv/shims:$PATH"
+  # export PATH="${HOME}/.pyenv/shims:$PATH"
   export PATH="${HOME}/.nodebrew/current/bin:${PATH}"
-  export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
+  # export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
   export ARCHFLAGS='-arch i386 -arch x86_64'
   export XDG_CONFIG_HOME="${HOME}/.config" # for NeoVim
 
