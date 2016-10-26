@@ -124,6 +124,13 @@ if [ $(uname) = "Darwin" ]; then
     fisher
   fi
 
+  if [ -x $(which git) ]; then
+    git clone https://github.com/creationix/nvm.git ~/.nvm
+    cd ~/.nvm
+    git checkout $(git describe --abbrev=0 --tags)
+    git clone https://github.com/passcod/nvm-fish-wrapper.git ~/.config/nvm-wrapper
+  fi
+
   # Setting cron
   crontab ~/dotfiles/cron/crontab.backup
 
