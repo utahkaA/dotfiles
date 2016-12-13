@@ -2,14 +2,14 @@
 
 if [ $(uname) = "Darwin" ]; then
   echo ">>> Your system is OS X. Start setting your enviroment"
-
+  echo "=========================================================================="
   # Install Homebrew
-  if [ ! -x "$(which brew)" ]; then
+  if [ ! -x $(which brew) ]; then
     echo "=========================================================================="
     /usr/bin/ruby -e \
     "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-    if [ ! -x "$(which brew)" ]; then
+    if [ -x $(which brew) ]; then
       echo ">>> Successed installing Homebrew"
     fi
   else
@@ -17,11 +17,16 @@ if [ $(uname) = "Darwin" ]; then
   fi
 
   # Install Git using Homebrew
-  if [ ! -x $(which git) ]; then
-    echo "=========================================================================="
-    brew install git
-    echo ">>> Successed installing git using brew"
+  if [ -x $(which brew) ]; then
+    if ! brew list | grep -q git; then
+      echo "=========================================================================="
+      brew install git
+      echo ">>> Successed installing Git using brew"
+    fi
+  else
+    echo ">>> Git is already installed"
   fi
+
 
   # Clone dotfiles
   if [ -x $(which git) ]; then
@@ -35,14 +40,21 @@ if [ $(uname) = "Darwin" ]; then
   # Install Brewfile using Homebrew
   if [ -x $(which brew) ]; then
     echo "=========================================================================="
-    brew install rcmdnk/file/brew-file
-    if [ -d ~/.brewfile/ ]; then
-      mkdir ~/.brewfile
-      cat ~/dotfiles/homebrew/Brewfile >> ~/.brewfile/Brewfile
+    if brew list | grep -q brew-file; then
+      echo ">>> brew-file is already installed"
+    else
+      brew install rcmdnk/file/brew-file
     fi
-    brew file install
-    echo ">>> Install brew formulas using bundle"
+    if [ ! -d ~/.brewfile/ ]; then
+      mkdir ~/.brewfile
+      cat ~/dotfiles/homebrew/Brewfile > ~/.brewfile/Brewfile
+    fi
+    if [ -e ~/.brewfile/Brewfile ]; then
+      brew file install
+      echo ">>> Install brew formulas using bundle"
+    fi
   fi
+
 
   # Install Anacondas using pyenv
   if [ -x "$(which pyenv)" ]; then
@@ -81,12 +93,14 @@ if [ $(uname) = "Darwin" ]; then
   # fi
 
   # Install powerline-fonts
-  if [ -x $(which git) ]; then
-    echo "=========================================================================="
-    echo ">>> Start to install powerline-fonts via Github"
-    git clone https://github.com/powerline/fonts.git
-    ./fonts/install.sh
-    mv fonts ~/.Trash
+  if brew list | grep -q git; then
+    if (($(find ~/Library/Fonts -type f | grep powerline | wc -l) == 0)); then
+      echo "=========================================================================="
+      echo ">>> Start to install powerline-fonts via Github"
+      git clone https://github.com/powerline/fonts.git
+      ./fonts/install.sh
+      rm -rf fonts
+    fi
   fi
 
   # Install dein.vim
@@ -94,7 +108,7 @@ if [ $(uname) = "Darwin" ]; then
     mkdir -p ~/.cache/dein
     curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
     sh ./installer.sh ~/.cache/dein
-    mv installer.sh ~/.Trash
+    rm installer.sh
     echo ">>> Successed installing dein.vim"
   else
     echo ">>> dein.vim is already installed"
@@ -106,7 +120,7 @@ if [ $(uname) = "Darwin" ]; then
       git clone https://github.com/sickill/vim-monokai.git
       mkdir -p ~/.vim/colors
       mv vim-monokai/colors/monokai.vim ~/.vim/colors/
-      mv vim-monokai ~/.Trash
+      rm -rf vim-monokai
     else
       echo ">>> Unknown command 'git'"
     fi
@@ -117,7 +131,9 @@ if [ $(uname) = "Darwin" ]; then
   # Setting login shell to fish
   if [ ! $SHELL = "/usr/local/bin/fish" ]; then
     cat /etc/shells <(echo "/usr/local/bin/fish") | sudo tee /etc/shells
-    chsh -s /usr/local/bin/fish
+    if [ -e /usr/local/bin/fish ]; then
+      chsh -s /usr/local/bin/fish
+    fi
     curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisherman
     cp ~/dotfiles/fish/config.fish ~/.config/fish/config.fish
     cp ~/dotfiles/fish/fishfile ~/.config/fish/fishfile
