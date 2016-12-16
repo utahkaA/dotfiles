@@ -6,6 +6,7 @@
 ~/Music/
 ~/Pictures/*.photolibrary
 ~/Desktop/
+~/.cache/
 ~/.pyenv/
 ~/.rbenv/
 

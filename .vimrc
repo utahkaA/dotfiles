@@ -72,6 +72,7 @@ call dein#add('itchyny/lightline.vim')
 " call dein#add('nathanaelkane/vim-indent-guides')
 call dein#add('bronson/vim-trailing-whitespace') " for visualising extra whitespace
 call dein#add('JuliaLang/julia-vim')
+call dein#add('sophacles/vim-processing')
 
 " You can specify revision/branch/tag.
 call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
