@@ -1,6 +1,7 @@
 #!/bin/bash
 
-cd ~/dotfiles
-/usr/local/bin/brew file init
-cat ~/.brewfile/Brewfile > homebrew/Brewfile
-echo $(date)": Brewfile is updated" >> homebrew/brew.log
+if [ ! -e ~/.brewfile/Brewfile ]; then
+  /usr/local/bin/brew file init
+fi
+cat ~/.brewfile/Brewfile > ~/dotfiles/homebrew/Brewfile
+echo $(date)": Brewfile is updated" >> ~/dotfiles/homebrew/brew.log
