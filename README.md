@@ -60,6 +60,18 @@ brew bundle cleanup
 
 で、消した行のものはアンインストールしたりしてくれる。
 
+`Powerline-fonts`
+-----------------
+To install powerline fonts.
+
+```
+cd ~/Desktop
+git clone git@github.com:powerline/fonts.git
+./fonts/install.sh
+```
+
+Change iTerm font.
+
 Ubuntu
 ------
 Installation of Inconsolata on Ubuntu
@@ -71,3 +83,4 @@ apt-get install fonts-inconsolata
 ```
 
 With the font installed, we can set our terminal's font by editing the menu `Edit/Profiles`.
+

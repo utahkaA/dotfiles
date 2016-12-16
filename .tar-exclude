@@ -1,0 +1,16 @@
+~/WorkTree/virtualbox/*
+~/Applications/
+~/Movies/
+~/Public/
+~/Downloads/
+~/Music/
+~/Pictures/*.photolibrary
+~/Desktop/
+~/.cache/
+~/.pyenv/
+~/.rbenv/
+
+*.wav
+*.dmg
+*.pkg
+.DS_Store
