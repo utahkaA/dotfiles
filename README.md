@@ -11,7 +11,6 @@ Mac OS X
 Setup
 ------
 <!-- - show bundle progress bar -->
-
 ### 1. Run script setup_all.sh
 Run the following command to download my setup_all.sh
 
@@ -35,30 +34,24 @@ Python 2 is Needed.
 
 `Brewfile`
 -----------
-
-to generate `Brewfile`
+To generate `Brewfile`
 
 ```
 brew bundle dump
 ```
 
 List of applications installed by `brew` is written on the `Brewfile`.
-
-run the command below in the directory which has `Brewfile`.
+Excuting the following command installs packages or applications written in `Brewfile`.
 
 ```
 brew bundle
 ```
 
-`Brewfile` に書かれているパッケージやアプリケーションなどがインストールされる。
-
-ほかにも、`Brewfile` に書かれていていらないものはその行を消してしまえば、
+In addition, you can uninstall softwares which you don not need written in Brewfile by deleting that line and excuting:
 
 ```
 brew bundle cleanup
 ```
-
-で、消した行のものはアンインストールしたりしてくれる。
 
 `Powerline-fonts`
 -----------------
@@ -83,4 +76,3 @@ apt-get install fonts-inconsolata
 ```
 
 With the font installed, we can set our terminal's font by editing the menu `Edit/Profiles`.
-

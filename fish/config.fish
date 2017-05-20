@@ -4,6 +4,7 @@ set -x EDITOR '/Applications/MacVim.app/Contents/MacOS/Vim'
 set PATH /usr/local/bin /usr/bin /bin /usr/sbin /sbin /opt/X11/bin /Library/TeX/texbin
 set PATH /usr/local/opt/gnu-tar/libexec/gnubin $PATH
 set PATH ~/.local/bin $PATH
+set PATH ~/.nodebrew/current/bin $PATH
 
 set -x LANG "en_US.UTF-8"
 set -x LC_TYPE "en_US.UTF-8"
@@ -19,6 +20,8 @@ set -x LC_TELEPHONE "en_US.UTF-8"
 set -x LC_MEASUREMENT "en_US.UTF-8"
 set -x LC_INDENTIFICATION "en_US.UTF-8"
 set -x LC_ALL "en_US.UTF-8"
+
+set -x NODE_PATH (npm root -g)
 
 # --- Aliases ---
 alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
@@ -43,3 +46,4 @@ end
 set -x PYENV_ROOT ~/.pyenv
 # set -x PATH $PYENV_ROOT/bin $PATH
 . (pyenv init - | psub)
+. (rbenv init - | psub)
