@@ -56,17 +56,27 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
-# my config {
 function _git_branch () {
-  local branch=$(git branch 2> /dev/null | sed -ne 's;^\* \(.*\)$;\1;p')
-  test "$branch" || branch='none'
-  echo $branch
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/[\1]/'
 }
-# }
+
+function _prompt_setting () {
+  local RED="\[\e[38;2;243;27;68m\]"
+  local TURQUOISE="\[\e[38;2;64;224;208m\]"
+  local MediumSpringGreen="\[\e[38;2;0;250;254m\]"
+  local WHITE="\[\e[00m\]"
+  local BOLD="\[\e[40;1;37m\]"
+
+  case $TERM in
+    xterm*) TITLEBAR='\[\e]0;\W\007\]';;
+    *)      TITLEBAR="";;
+  esac
+  local BASE="\u@\H"
+  PS1="[${TITLEBAR}${MediumSpringGreen}${BASE}${WHITE}] \w ${BOLD}\$(_git_branch)${WHITE}\n\$ "
+}
 
 if [ "$color_prompt" = yes ]; then
-    # PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-    PS1="[\u@\h] \[\033[38;2;0;157;191m\]\w\[\033[00m\] [\[\033[40;1;37m\]\$(_git_branch)\[\033[0m\]]\n\$ "
+  _prompt_setting
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
