@@ -1,0 +1,70 @@
+# set vim as default editor
+export EDITOR=vim
+
+# for locale
+export LANG=en_US.UTF-8
+export LC_ALL=ja_JP.UTF-8
+
+# XDG Base Directory Specification's values.
+export XDG_CONFIG_HOME=~/.config
+
+# for coreutils
+export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
+export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
+
+# for pyenv
+export PYENV_ROOT=$HOME/.pyenv
+export PATH=$PYENV_ROOT/bin:$PATH
+eval "$(pyenv init -)"
+
+# for golang
+export GOPATH=$HOME/WorkTree/go
+export PATH=$GOPATH/bin:$PATH
+
+# for nodebrew
+export NODEBREW_HOME=/usr/local/var/nodebrew/current
+export NODEBREW_ROOT=/usr/local/var/nodebrew
+export PATH=$NODEBREW_HOME/bin:$PATH
+
+# for haskell
+export PATH=$HOME/.local/bin:$PATH
+
+# Aliases
+alias ls='ls --color=auto -F'
+alias la='ls -a'
+alias ll='ls -hl'
+alias awk='gawk'
+alias grep='grep --color'
+
+if [ -e /usr/local/Cellar/neovim ]; then
+  alias vim="/usr/local/Cellar/neovim/0.2.2_1/bin/nvim"
+fi
+
+# Prompt Settings
+case $TERM in
+  xterm-color|*-256color) color_prompt=yes;;
+esac
+
+function _git_branch () {
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/[\1]/'
+}
+
+function _prompt_setting () {
+  local RED="\[\e[38;2;243;27;68m\]"
+  local TURQUOISE="\[\e[38;2;64;224;208m\]"
+  local WHITE="\[\e[00m\]"
+  local BOLD="\[\e[40;1;37m\]"
+
+  case $TERM in
+    xterm*) TITLEBAR='\[\e]0;\W\007\]';;
+    *)      TITLEBAR="";;
+  esac
+  local BASE="\u@\H"
+  PS1="[${TITLEBAR}${RED}${BASE}${WHITE}] \w ${BOLD}\$(_git_branch)${WHITE}\n\$ "
+}
+
+if [ "$color_prompt" = yes ]; then
+  _prompt_setting
+else
+  PS1="\u@\h:\w \$ "
+fi
