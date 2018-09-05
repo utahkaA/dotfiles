@@ -2,4 +2,38 @@
 repo = 'Shougo/dein.vim'
 
 [[plugins]]
+repo = 'itchyny/lightline.vim'
+hook_add = '''
+  let g:lightline = {
+    \ 'colorscheme': 'wombat',
+    \ 'component': {
+    \   'readonly': '%{&readonly?"readonly":""}',
+    \ },
+    \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" }
+    \ }
+'''
+
+[[plugins]]
+repo = 'roxma/nvim-yarp'
+
+[[plugins]]
+repo = 'roxma/vim-hug-neovim-rpc'
+
+[[plugins]]
 repo = 'scrooloose/nerdtree'
+hook_add = '''
+  nnoremap <silent> <C-e> :NERDTreeToggle<CR>
+  let NERDTreeShowHidden=1
+'''
+
+[[plugins]]
+repo = 'tomtom/tcomment_vim'
+
+[[plugins]]
+repo = 'bronson/vim-trailing-whitespace'
+
+[[plugins]]
+repo = 'cohama/lexima.vim'
+
+[[plugins]]
+repo = 'cespare/vim-toml'
