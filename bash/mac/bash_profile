@@ -40,6 +40,10 @@ if [ -e /usr/local/Cellar/neovim ]; then
   alias vim="/usr/local/Cellar/neovim/0.2.2_1/bin/nvim"
 fi
 
+function trash () {
+  mv $@ -t ~/.Trash
+}
+
 # Prompt Settings
 case $TERM in
   xterm-color|*-256color) color_prompt=yes;;
@@ -59,7 +63,7 @@ function _prompt_setting () {
     xterm*) TITLEBAR='\[\e]0;\W\007\]';;
     *)      TITLEBAR="";;
   esac
-  local BASE="\u@\H"
+  local BASE="\u@\h"
   PS1="[${TITLEBAR}${RED}${BASE}${WHITE}] \w ${BOLD}\$(_git_branch)${WHITE}\n\$ "
 }
 
