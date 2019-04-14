@@ -13,8 +13,11 @@ set clipboard=unnamed
 " for vue
 autocmd BufNewFile,BufRead *.{html,htm,vue*} set filetype=html
 
-" for python
-let g:python3_host_prog = expand('$HOME/.pyenv/versions/3.6.4/bin/python')
+" for dynamic provider
+let g:python_host_prog = expand('$HOME/.pyenv/versions/2.7.16/bin/python2')
+let g:python3_host_prog = expand('$HOME/.pyenv/versions/anaconda3-5.3.1/bin/python')
+let g:ruby_host_prog = expand('$HOME/.rbenv/versions/2.6.2/bin/neovim-ruby-host')
+let g:node_host_prog = expand('$HOME/.config/yarn/global/node_modules/.bin/neovim-node-host')
 
 " --- dont make backup files ---
 set nowritebackup
